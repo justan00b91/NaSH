@@ -5,8 +5,9 @@
 int main(){
 	char cmd[100], command[100], *parameters[20];
 	char* envp[] = { (char*) "PATH=/bin",0 };
+	cls_scr();
 	while(1){
-		type_prompt();
+		starter();
 		read_command ( command, parameters );
 		if(fork() != 0){
 			wait( NULL );
@@ -20,7 +21,7 @@ int main(){
 			break;
 		}
 		if(strcmp(command, "clear") == 0){
-			type_prompt();
+			cls_scr();
 		}
 	}
 	return 0;
