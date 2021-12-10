@@ -3,12 +3,16 @@
 #include"lexer.h"
 
 int main(){
-	char cmd[100], command[100], *parameters[20];
+	char cmd[20], command[20], *parameters[20];
 	char* envp[] = { (char*) "PATH=/bin",0 };
 	cls_scr();
+	version();
 	while(1){
 		starter();
 		read_command ( command, parameters );
+		 if ( strcmp(command, "exit") == 0){
+                        break;
+                }
 		if(fork() != 0){
 			wait( NULL );
 		}
@@ -16,9 +20,6 @@ int main(){
 			strcpy(cmd, "/bin/");
 			strcat(cmd, command);
 			execve(cmd, parameters, envp);
-		}
-		if ( strcmp(command, "exit") == 0){
-			break;
 		}
 		if(strcmp(command, "clear") == 0){
 			cls_scr();

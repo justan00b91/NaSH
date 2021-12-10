@@ -2,10 +2,10 @@
 #define LEXER_H
 
 void read_command(char cmd[], char* par[]){
-        char line[1024];
+        char line[40]={[0 ... 39] = 00};
         int count=0, i=0, j=0;
-        char* array[100], *pch;
-        for(;;){
+        char* array[20]={[0 ... 19] = 00}, *pch;
+        while(1){
                 int c = fgetc(stdin);
                 line[count++] = (char) c;
                 if(c == '\n'){
