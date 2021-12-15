@@ -11,11 +11,8 @@ void read_command(char cmd[], char* par[]){
                 if(c == '\n'){
                         break;
                 }
-        }
-        if(count == 1){
-                return;
-        }
-        pch = strtok(line, " \n");
+        }      
+	pch = strtok(line, " \n");
         while(pch != NULL){
                 array[i++] = strdup(pch);
                 pch = strtok(NULL," \n");
