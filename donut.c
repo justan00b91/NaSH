@@ -1,4 +1,4 @@
-#include <stdio.h> //Use https://www.onlinegdb.com/
+#include <stdio.h>
 #include <math.h>
 #include <string.h>
 #include <unistd.h>
